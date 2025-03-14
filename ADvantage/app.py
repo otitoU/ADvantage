@@ -212,7 +212,7 @@ def getVideoAd():
             duration=5
         )
 
-        Get video URL from the response
+        # Get video URL from the response
         video_url = image_to_video.url if hasattr(image_to_video, 'url') else None
         # video_url = None
 
