@@ -1,0 +1,181 @@
+Generate Text Ads API
+This API generates high-quality ad insights based on a product description, ad tone, and platform. It provides an optimized ad copy, a full ad script, the best time to post, call-to-actions (CTAs), and creative strategies.
+
+Endpoint
+POST http://172.25.32.194:8000/generateTextAds
+
+The request body should be in JSON format. Authentication is not required.
+
+Request Body
+The request should include the following parameters:
+
+product_description (string, required): A short description of the product or service being advertised.
+ad_tone (string, optional): The desired tone of the ad, such as "Professional," "Funny," or "Engaging." Defaults to "Engaging."
+platform (string, optional): The platform for which the ad is being generated, such as "Google," "Instagram," or "Facebook." Defaults to "general."
+
+Example Request
+{
+  "product_description": "AI-powered headphones",
+  "ad_tone": "Professional",
+  "platform": "google"
+}
+
+Response Format
+The API returns structured JSON containing:
+
+A high-converting ad copy
+A detailed ad script with hook, body, and call-to-action
+The best time to post for engagement
+Suggested call-to-actions (CTAs)
+Creative ad suggestions
+A platform-specific ad strategy
+
+Example Response
+{
+    "ad_copy": "Attention audio lovers! Experience the next level of sound with our AI-powered headphones. Imagine crystal-clear audio tailored to your environment and preferences. Interested? Learn more about how our technology can transform your listening experience. Act now and immerse yourself in a sound revolution!",
+    "ad_script": {
+        "Hook": "Ever thought your headphones could be smarter?",
+        "Body": "Introducing the latest in audio technology: AI-powered headphones designed for ultimate sound clarity and customization. Adjusts in real-time to your listening environment. Perfect for work, travel, or relaxation.",
+        "CTA": "Visit our website to experience the future of sound. Order now and get an exclusive discount!"
+    },
+    "best_time_to_post": "Weekdays between 11 AM and 2 PM local time, when users are most likely to be active during breaks or looking for productivity tools.",
+    "call_to_actions": [
+        "Discover the future of sound",
+        "Shop now and save",
+        "Learn more today"
+    ],
+    "creative_suggestions": [
+        "Use high-quality images of the headphones with visually appealing sound waves to illustrate the AI capabilities.",
+        "Include testimonials in the ad showing real user feedback on the clarity and customization of the sound.",
+        "Create a short animation showing the headphones adapting to different sound environments."
+    ],
+    "platform_strategy": "On Google, utilize a combination of search ads targeting keywords related to high-end headphones and AI technology. Leverage display ads with engaging visuals on relevant tech blogs and websites. Employ retargeting strategies to capture interested users who visited but didn’t purchase. Analyze performance metrics such as click-through rates and conversion rates to optimize the campaign."
+}
+
+Error Handling
+If the product_description field is missing, the API returns:
+json
+{
+  "error": "Product description is required"
+}
+
+If an unexpected issue occurs during ad generation, the API returns:
+json
+{
+  "error": "Failed to process the request"
+}
+
+
+
+
+******************************************************************************************************************************************************
+Generate Video Ads API
+This API generates a 5-second video ad from an image and a text prompt using RunwayML AI. The user can either upload an image file or provide an image URL, along with a short text prompt describing the video.
+
+Endpoint
+POST http://<server-ip>:8000/getVidAds
+
+It accepts multipart/form-data for image uploads or application/json when using an image URL. Authentication is not required.
+
+Request Parameters
+The request must include either an image file or an image URL, along with a text prompt describing the video.
+
+prompt_image (file, optional): An image file used for video generation. Required if prompt_image_url is not provided.
+prompt_image_url (string, optional): A direct image URL. Must start with http. Required if prompt_image is not provided.
+prompt_text (string, required): A short description of the video content.
+Response Format
+The API returns a JSON response with the generated video URL.
+
+Success Response (200 OK)
+json
+
+{
+  "video_url": "https://runwayml.com/generated_video.mp4"
+}
+Error Handling
+If neither an image file nor an image URL is provided, the API returns:
+json
+
+{
+  "error": "No image provided"
+}
+If the provided image URL is invalid (not starting with http), the API returns:
+json
+ 
+{
+  "error": "Invalid image URL"
+}
+If the prompt_text field is missing, the API returns:
+json
+ 
+{
+  "error": "Prompt text is required"
+}
+If the video generation fails, the API returns:
+json
+{
+  "error": "Failed to generate video"
+}
+Expected API Behavior
+The user provides either an image file or an image URL.
+The API converts the image to Base64 format if uploaded.
+The API sends the image and text prompt to RunwayML AI.
+The AI generates a 5-second video based on the provided prompt.
+The video URL is returned as JSON.
+
+
+
+
+
+
+
+******************************************************************************************************************************************************
+Generate Image Ads API
+This API generates an AI-powered image ad based on a product description and advertising tone using OpenAI’s DALL·E. The API allows businesses to create visually appealing ads optimized for different platforms.
+
+Endpoint
+POST http://<server-ip>:8000/generateImageAds
+
+The request body should be in JSON format. Authentication is not required.
+
+Request Body
+The request must contain the following parameters:
+
+product_description (string, required): A brief description of the product or service being advertised.
+ad_tone (string, optional): The style or theme of the image ad (e.g., "Luxury," "Minimalist," "Playful"). Defaults to "Engaging."
+platform (string, optional): The platform for which the ad is optimized (e.g., "Instagram," "Facebook," "Google Display Ads"). Defaults to "general."
+Example Request
+json
+ 
+{
+  "product_description": "Smart fitness watch with heart rate tracking",
+  "ad_tone": "Energetic",
+  "platform": "Instagram"
+}
+Response Format
+The API returns a JSON response containing the generated image URL along with additional metadata.
+
+Success Response (200 OK)
+json
+ 
+{
+  "image_url": "https://openai.com/generated_image.jpg",
+  "description": "An eye-catching ad featuring a sleek smart fitness watch with vibrant colors, a person jogging, and heart rate data displayed on the screen.",
+  "suggested_caption": "Stay on top of your fitness goals! 🏋️‍♂️ Track heart rate, calories, and sleep with the SmartFit Pro. #FitnessGoals #SmartTech",
+  "best_time_to_post": "Weekdays at 7 AM - 9 AM, when fitness enthusiasts are planning workouts."
+}
+Error Handling
+If the product_description field is missing, the API returns:
+
+json
+ 
+{
+  "error": "Product description is required"
+}
+If OpenAI fails to generate an image, the API returns:
+
+json
+ 
+{
+  "error": "Failed to generate image ad"
+}
