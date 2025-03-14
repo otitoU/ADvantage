@@ -30,28 +30,26 @@ Suggested call-to-actions (CTAs)
 Creative ad suggestions
 A platform-specific ad strategy
 
-Example Response
 {
-    "ad_copy": "Attention audio lovers! Experience the next level of sound with our AI-powered headphones. Imagine crystal-clear audio tailored to your environment and preferences. Interested? Learn more about how our technology can transform your listening experience. Act now and immerse yourself in a sound revolution!",
+    "ad_copy": "Attention audiophiles and tech enthusiasts! Discover the future of audio with our AI-powered headphones. Engineered for exceptional sound clarity, our headphones adapt to your hearing preferences in real time. Imagine a listening experience so personalized, it feels like the music was crafted just for you. Don't miss out on this revolution in sound technology. Act now to elevate your auditory experience!",
     "ad_script": {
-        "Hook": "Ever thought your headphones could be smarter?",
-        "Body": "Introducing the latest in audio technology: AI-powered headphones designed for ultimate sound clarity and customization. Adjusts in real-time to your listening environment. Perfect for work, travel, or relaxation.",
-        "CTA": "Visit our website to experience the future of sound. Order now and get an exclusive discount!"
+        "Body": "Introducing the latest in audio technology - our AI-powered headphones. With adaptive sound control, they adjust to your environment and preferences, providing unparalleled sound quality and an immersive listening experience. Whether you're commuting, working, or just relaxing, these headphones are designed to offer the best audio experience.",
+        "CTA": "Visit our website to learn more and purchase your pair today. Experience sound like never before!",
+        "Hook": "Ever wondered what it's like to have a personal sound engineer? Now you can."
     },
-    "best_time_to_post": "Weekdays between 11 AM and 2 PM local time, when users are most likely to be active during breaks or looking for productivity tools.",
+    "best_time_to_post": "Recommended posting time is during weekday evenings from 6 PM to 9 PM. This timeframe has shown higher engagement rates as users are more likely to browse and shop online after work hours.",
     "call_to_actions": [
-        "Discover the future of sound",
-        "Shop now and save",
-        "Learn more today"
+        "Shop Now",
+        "Discover the Technology",
+        "Experience the Future of Sound"
     ],
     "creative_suggestions": [
-        "Use high-quality images of the headphones with visually appealing sound waves to illustrate the AI capabilities.",
-        "Include testimonials in the ad showing real user feedback on the clarity and customization of the sound.",
-        "Create a short animation showing the headphones adapting to different sound environments."
+        "Idea 1: Use high-definition images of the headphones with a sleek, modern design in the background to emphasize the technological aspect.",
+        "Idea 2: Include testimonials in the ad from audio engineers and tech experts to build credibility and trust.",
+        "Idea 3: Create a comparison video showing the difference in sound quality between regular headphones and our AI-powered headphones."
     ],
-    "platform_strategy": "On Google, utilize a combination of search ads targeting keywords related to high-end headphones and AI technology. Leverage display ads with engaging visuals on relevant tech blogs and websites. Employ retargeting strategies to capture interested users who visited but didn’t purchase. Analyze performance metrics such as click-through rates and conversion rates to optimize the campaign."
+    "platform_strategy": "On Google, leverage both SEO and SEM strategies to ensure visibility. Use targeted keywords such as 'AI-powered headphones', 'high-tech headphones', and 'adaptive sound technology' for SEO and bidding in SEM. Create compelling meta descriptions and use structured data to enhance click-through rates. Remarketing should be utilized to retarget visitors who have shown interest but did not convert, using tailored ads based on their interaction with the site."
 }
-
 Error Handling
 If the product_description field is missing, the API returns:
 json
@@ -73,7 +71,7 @@ Generate Video Ads API
 This API generates a 5-second video ad from an image and a text prompt using RunwayML AI. The user can either upload an image file or provide an image URL, along with a short text prompt describing the video.
 
 Endpoint
-POST http://<server-ip>:8000/getVidAds
+POST https://adventure-1sv2.onrender.com/getVidAds
 
 It accepts multipart/form-data for image uploads or application/json when using an image URL. Authentication is not required.
 
@@ -134,7 +132,7 @@ Generate Image Ads API
 This API generates an AI-powered image ad based on a product description and advertising tone using OpenAI’s DALL·E. The API allows businesses to create visually appealing ads optimized for different platforms.
 
 Endpoint
-POST http://<server-ip>:8000/generateImageAds
+POST https://adventure-1sv2.onrender.com/generateImageAds
 
 The request body should be in JSON format. Authentication is not required.
 
