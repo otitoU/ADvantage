@@ -195,7 +195,7 @@ def getVideoAd():
                 return jsonify({"error": "Invalid image URL"}), 400
 
         else:
-            return jsonify({"error": "No image provided"}), 400
+            return jsonify({"error": "N  image provided"}), 400
 
         # Get prompt text
         prompt_text = request.form.get("prompt_text") or request.json.get("prompt_text")
