@@ -205,16 +205,16 @@ def getVideoAd():
 
         
         # Generate video using RunwayML
-        # image_to_video = runMLClient.image_to_video.create(
-        #     model="gen3a_turbo",
-        #     prompt_image=encoded_image,
-        #     prompt_text=prompt_text,
-        #     duration=5
-        # )
+        image_to_video = runMLClient.image_to_video.create(
+            model="gen3a_turbo",
+            prompt_image=encoded_image,
+            prompt_text=prompt_text,
+            duration=5
+        )
 
-        # Get video URL from the response
-        # video_url = image_to_video.url if hasattr(image_to_video, 'url') else None
-        video_url = None
+        Get video URL from the response
+        video_url = image_to_video.url if hasattr(image_to_video, 'url') else None
+        # video_url = None
 
 
         if not video_url:
